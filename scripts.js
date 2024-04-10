@@ -24,43 +24,65 @@
  */
 
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+const MINECRAFT_KEY_ART_URL = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/ef/Minecraft_vertical_key_art.jpg";
+const SKYRIM_XBOX_ART_URL = "https://static.wikia.nocookie.net/skyrim_gamepedia/images/f/f9/SkyrimXbox.jpg";
+const MEGA_MAN_6_BOX_ART_URL = "https://static.wikia.nocookie.net/megaman/images/d/d5/Mega_Man_6_box.jpg";
 
-// This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
+// Video game genres
+let title1 = [
+    "Role-Playing"
 ];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
 
+let title2 = [
+    "Platformer"
+];
 
-// This function adds cards the page to display the data in the array
+let title3 = [
+    "Sandbox"
+];
+
+// This function adds cards to the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
-    
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
 
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
+    for (let i = 0; i < title1.length; i++) {
+        let titleOne = title1[i];
+
+        let image1URL = "";
         if (i == 0) {
-            imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-            imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-            imageURL = EAST_LOS_HIGH_POSTER_URL;
+            image1URL = SKYRIM_XBOX_ART_URL;
         }
 
-        const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
-        cardContainer.appendChild(nextCard); // Add new card to the container
+        const nextCard = templateCard.cloneNode(true);
+        editCardContent(nextCard, titleOne, image1URL);
+        cardContainer.appendChild(nextCard);
+    }
+
+    for (let i = 0; i < title2.length; i++) {
+        let titleTwo = title2[i];
+
+        let image2URL = "";
+        if (i == 0) {
+            image2URL = MEGA_MAN_6_BOX_ART_URL;
+        }
+
+        const nextCard = templateCard.cloneNode(true);
+        editCardContent(nextCard, titleTwo, image2URL);
+        cardContainer.appendChild(nextCard);
+    }
+    
+    for (let i = 0; i < title3.length; i++) {
+        let titleThree = title3[i];
+
+        let image3URL = "";
+        if (i == 0) {
+            image3URL = MINECRAFT_KEY_ART_URL;
+        }
+        const nextCard = templateCard.cloneNode(true);
+        editCardContent(nextCard, titleThree, image3URL);
+        cardContainer.appendChild(nextCard);
     }
 }
 
@@ -83,12 +105,12 @@ function editCardContent(card, newTitle, newImageURL) {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
-function quoteAlert() {
+function suggestionTime() {
     console.log("Button Clicked!")
-    alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
+    alert("In my honest opinion, you should definitely check out one of the Persona games from Atlus! It is an amazing role-playing game series that I am sure you will grow to love!");
 }
 
 function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
+    title1.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
 }
